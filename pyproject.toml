@@ -10,7 +10,7 @@ authors = [
     {name = "CADbuildr Team"},
 ]
 dependencies = [
-    "cadbuildr-foundation>=0.2.12,<0.3.0",
+    "cadbuildr-foundation>=0.2.13,<0.3.0",
 ]
 
 [dependency-groups]
@@ -19,7 +19,7 @@ dev = [
 ]
 
 [tool.cadbuildr.dependencies]
-cadbuildr-foundation = "^0.2.12"
+cadbuildr-foundation = "^0.2.13"
 
 [tool.hatch.build.targets.wheel]
 packages = [

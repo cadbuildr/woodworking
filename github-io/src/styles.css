@@ -153,6 +153,26 @@ code {
   letter-spacing: 0.08em;
   color: #999;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.powered-by {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cb-gray-logo);
+  text-decoration: none;
+}
+
+.powered-by:hover span {
+  text-decoration: underline;
+}
+
+.powered-by img {
+  display: block;
+  opacity: 0.85;
 }
 
 /* Inline viewer card */

@@ -14,11 +14,7 @@ import {
 } from "@cadbuildr/sdk-react";
 
 import { resolveKernelApiBaseUrl } from "./kernelApiEnv";
-import {
-  FOUNDATION_WHEEL_FILE,
-  LOCAL_WHEELS_URL_SEGMENT,
-  WOODWORKING_WHEEL_FILE,
-} from "./wheels";
+import { LOCAL_WHEELS_URL_SEGMENT, WOODWORKING_WHEEL_FILE } from "./wheels";
 import examplesManifest from "./examples.json";
 import "./styles.css";
 
@@ -59,9 +55,16 @@ function localWheelUrl(fileName: string): string {
   ).href;
 }
 
-function resolveFoundationWheelUrl(): string {
+/** Published foundation release the demo runs on (installed from PyPI).
+ *  NEVER bundle a locally-built foundation wheel here: publish foundation
+ *  first, then depend on the release — see guidelines/building-on-foundation. */
+const FOUNDATION_PYPI_VERSION = "==0.2.13";
+
+/** Optional local override (foundation development only): a wheel URL via
+ *  VITE_FOUNDATION_WHEEL_URL. Unset (the default) means PyPI. */
+function resolveFoundationWheelOverride(): string | null {
   const fromEnv = (import.meta.env.VITE_FOUNDATION_WHEEL_URL as string | undefined)?.trim();
-  return fromEnv || localWheelUrl(FOUNDATION_WHEEL_FILE);
+  return fromEnv || null;
 }
 
 function resolveWoodworkingWheelUrl(): string {
@@ -166,11 +169,14 @@ function App() {
     async function bootstrapRuntime() {
       try {
         demoLog("bootstrap: initializing Pyodide runtime");
+        const wheelOverride = resolveFoundationWheelOverride();
         const pyodide = await initializeCadPyodideRuntime({
-          packages: {
-            foundation: "*",
-            foundationPackageName: resolveFoundationWheelUrl(),
-          },
+          packages: wheelOverride
+            ? { foundation: "*", foundationPackageName: wheelOverride }
+            : {
+                foundation: FOUNDATION_PYPI_VERSION,
+                foundationPackageName: "cadbuildr-foundation",
+              },
           foundationImportPath: FOUNDATION_IMPORT_PATH,
         });
         if (cancelled) {
@@ -188,7 +194,7 @@ function App() {
         pyodideRef.current = pyodide;
         setRuntimeReady(true);
         demoLog("bootstrap: ready", {
-          foundationWheel: resolveFoundationWheelUrl(),
+          foundation: resolveFoundationWheelOverride() ?? `pypi ${FOUNDATION_PYPI_VERSION}`,
           woodworkingWheel: resolveWoodworkingWheelUrl(),
           kernelApiBaseUrl,
         });
@@ -435,7 +441,20 @@ function App() {
       />
 
       <footer className="poster-footer">
-        <span>cadbuildr · woodworking library</span>
+        <a
+          className="powered-by"
+          href="https://cadbuildr.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img
+            src={`${import.meta.env.BASE_URL}cadbuildr-logo.svg`}
+            alt="CADbuildr"
+            width={22}
+            height={22}
+          />
+          <span>Powered by CADbuildr</span>
+        </a>
         {!runtimeReady && !error ? <span> — loading Python runtime…</span> : null}
       </footer>
     </div>

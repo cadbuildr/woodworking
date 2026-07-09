@@ -13,12 +13,12 @@ pnpm install
 pnpm run dev
 ```
 
-The page loads two Python wheels from `public/local-wheels/`:
-`cadbuildr-foundation` and this repo's `cadbuildr-projects-woodworking`.
-Build them with `uv build` (foundation from PyPI source or the wheel of the
-matching release) and copy the `.whl` files into `public/local-wheels/`, or
-point `VITE_FOUNDATION_WHEEL_URL` / `VITE_WOODWORKING_WHEEL_URL` at hosted
-wheels.
+At runtime the page installs `cadbuildr-foundation` **from PyPI** (pinned in
+`src/main.tsx`) and loads this repo's own `cadbuildr-projects-woodworking`
+wheel from `public/local-wheels/` (`pnpm run sync-wheels` builds and copies
+it). Never bundle a locally-built foundation wheel — release foundation to
+PyPI first, then bump the pin. `VITE_FOUNDATION_WHEEL_URL` exists only as a
+dev override while hacking on foundation itself.
 
 Viewer auth (see `.env.example`): set `VITE_CADBUILDR_KEY_ID` (publishable
 partner key, origin-checked) or `VITE_CADBUILDR_SESSION_TOKEN`.

@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:wheels": "cd ../../../cadbuildr/foundation && uv build --out-dir dist && cd ../../cadbuildr_projects/woodworking && uv build --out-dir dist",
-    "sync-wheels": "pnpm run build:wheels && mkdir -p public/local-wheels && cp ../../../cadbuildr/foundation/dist/cadbuildr_foundation-*.whl public/local-wheels/ && cp ../dist/cadbuildr_projects_woodworking-*.whl public/local-wheels/",
+    "build:wheels": "cd .. && uv build --out-dir dist",
+    "sync-wheels": "pnpm run build:wheels && mkdir -p public/local-wheels && cp ../dist/cadbuildr_projects_woodworking-*.whl public/local-wheels/",
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
