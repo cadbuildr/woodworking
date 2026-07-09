@@ -1,0 +1,33 @@
+{
+  "name": "woodworking-github-io",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:wheels": "cd ../../../cadbuildr/foundation && uv build --out-dir dist && cd ../../cadbuildr_projects/woodworking && uv build --out-dir dist",
+    "sync-wheels": "pnpm run build:wheels && mkdir -p public/local-wheels && cp ../../../cadbuildr/foundation/dist/cadbuildr_foundation-*.whl public/local-wheels/ && cp ../dist/cadbuildr_projects_woodworking-*.whl public/local-wheels/",
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "three": "^0.169.0",
+    "pyodide": "^0.29.3",
+    "@cadbuildr/cad-kernel-r3f": "^0.2.0",
+    "@cadbuildr/cad-pyodide-runtime": "^0.1.1",
+    "@cadbuildr/sdk-react": "^0.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.169.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.14"
+  }
+}
