@@ -357,7 +357,7 @@ function App() {
                 baseUrl={kernelApiBaseUrl}
                 keyId={keyId}
                 sessionToken={sessionToken}
-                projectKey="wood-joints"
+                projectKey="woodworking"
               >
                 <CadbuildrViewer
                   dag={dag}
