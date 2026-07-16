@@ -4,100 +4,100 @@
       "id": "mortise-and-tenon",
       "title": "Mortise & Tenon",
       "description": "The classic T-joint: shoulder cuts form the tenon, the pocket is mortised into the leg, one line places and cuts both.",
-      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr_projects.woodworking import Beam, mortise_and_tenon\n\nleg = Beam(45, 45, 400, color=\"#8a6a45\")\nrail = Beam(45, 45, 260, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(leg)\nmortise_and_tenon(assembly, rail, leg, face=\"px\", at=280)\nshow(assembly)"
+      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr.woodworking import Beam, mortise_and_tenon\n\nleg = Beam(45, 45, 400, color=\"#8a6a45\")\nrail = Beam(45, 45, 260, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(leg)\nmortise_and_tenon(assembly, rail, leg, face=\"px\", at=280)\nshow(assembly)"
     },
     {
       "id": "through-dovetail",
       "title": "Through Dovetail",
       "description": "Flared tails interlock with pins at a corner — the flare (cut through the board thickness) is what locks the joint.",
-      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr_projects.woodworking import Beam, through_dovetail\n\ntails = Beam(120, 18, 220, color=\"#8a6a45\")\npins = Beam(120, 18, 180, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(tails)\nthrough_dovetail(assembly, tails, pins, n_tails=3)\nshow(assembly)"
+      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr.woodworking import Beam, through_dovetail\n\ntails = Beam(120, 18, 220, color=\"#8a6a45\")\npins = Beam(120, 18, 180, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(tails)\nthrough_dovetail(assembly, tails, pins, n_tails=3)\nshow(assembly)"
     },
     {
       "id": "box-joint",
       "title": "Box (Finger) Joint",
       "description": "Alternating square fingers interleave at a 90° corner — the machine-friendly cousin of the dovetail.",
-      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr_projects.woodworking import Beam, box_joint\n\nside_a = Beam(120, 18, 220, color=\"#8a6a45\")\nside_b = Beam(120, 18, 180, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(side_a)\nbox_joint(assembly, side_a, side_b, n_segments=7)\nshow(assembly)"
+      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr.woodworking import Beam, box_joint\n\nside_a = Beam(120, 18, 220, color=\"#8a6a45\")\nside_b = Beam(120, 18, 180, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(side_a)\nbox_joint(assembly, side_a, side_b, n_segments=7)\nshow(assembly)"
     },
     {
       "id": "dado",
       "title": "Dado",
       "description": "A three-sided slot across the wall houses the whole shelf end — bookcase carpentry in one call.",
-      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr_projects.woodworking import Beam, dado_joint\n\nwall = Beam(18, 200, 500, color=\"#8a6a45\")\nshelf = Beam(18, 200, 260, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(wall)\ndado_joint(assembly, shelf, wall, face=\"px\", at=300, depth=6.0)\nshow(assembly)"
+      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr.woodworking import Beam, dado_joint\n\nwall = Beam(18, 200, 500, color=\"#8a6a45\")\nshelf = Beam(18, 200, 260, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(wall)\ndado_joint(assembly, shelf, wall, face=\"px\", at=300, depth=6.0)\nshow(assembly)"
     },
     {
       "id": "rabbet",
       "title": "Rabbet",
       "description": "A two-sided step at the board end seats the mating board flush — the standard box/frame corner.",
-      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr_projects.woodworking import Beam, rabbet_joint\n\nedge = Beam(140, 20, 300, color=\"#8a6a45\")\nboard = Beam(140, 20, 240, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(edge)\nrabbet_joint(assembly, board, edge)\nshow(assembly)"
+      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr.woodworking import Beam, rabbet_joint\n\nedge = Beam(140, 20, 300, color=\"#8a6a45\")\nboard = Beam(140, 20, 240, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(edge)\nrabbet_joint(assembly, board, edge)\nshow(assembly)"
     },
     {
       "id": "cross-lap",
       "title": "Cross Lap",
       "description": "Both beams notched half-deep, interlocking flush where they cross.",
-      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr_projects.woodworking import Beam, cross_lap\n\na = Beam(45, 45, 400, color=\"#8a6a45\")\nb = Beam(45, 45, 400, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(a)\ncross_lap(assembly, a, b, at_a=150, at_b=200)\nshow(assembly)"
+      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr.woodworking import Beam, cross_lap\n\na = Beam(45, 45, 400, color=\"#8a6a45\")\nb = Beam(45, 45, 400, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(a)\ncross_lap(assembly, a, b, at_a=150, at_b=200)\nshow(assembly)"
     },
     {
       "id": "end-lap",
       "title": "End Lap",
       "description": "The corner variant of the half-lap: both ends notched and overlapped at 90°.",
-      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr_projects.woodworking import Beam, end_lap\n\na = Beam(45, 45, 300, color=\"#8a6a45\")\nb = Beam(45, 45, 300, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(a)\nend_lap(assembly, a, b)\nshow(assembly)"
+      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr.woodworking import Beam, end_lap\n\na = Beam(45, 45, 300, color=\"#8a6a45\")\nb = Beam(45, 45, 300, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(a)\nend_lap(assembly, a, b)\nshow(assembly)"
     },
     {
       "id": "mitered-butt",
       "title": "Mitered Butt",
       "description": "Both ends cut 45° and mated into an L — no end grain visible on the outside of the corner.",
-      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr_projects.woodworking import Beam, mitered_butt\n\na = Beam(40, 40, 260, color=\"#8a6a45\")\nb = Beam(40, 40, 260, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(a)\nmitered_butt(assembly, a, b)\nshow(assembly)"
+      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr.woodworking import Beam, mitered_butt\n\na = Beam(40, 40, 260, color=\"#8a6a45\")\nb = Beam(40, 40, 260, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(a)\nmitered_butt(assembly, a, b)\nshow(assembly)"
     },
     {
       "id": "doweled-butt",
       "title": "Doweled Butt",
       "description": "A butt joint reinforced with real dowel pins: matching bores are drilled in both pieces and the pins span the interface.",
-      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr_projects.woodworking import Beam, doweled_butt\n\nwall = Beam(60, 60, 400, color=\"#8a6a45\")\nrail = Beam(60, 60, 240, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(wall)\ndoweled_butt(assembly, rail, wall, face=\"px\", at=220, n_dowels=2)\nshow(assembly)"
+      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr.woodworking import Beam, doweled_butt\n\nwall = Beam(60, 60, 400, color=\"#8a6a45\")\nrail = Beam(60, 60, 240, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(wall)\ndoweled_butt(assembly, rail, wall, face=\"px\", at=220, n_dowels=2)\nshow(assembly)"
     },
     {
       "id": "butt",
       "title": "Basic Butt",
       "description": "Two flat pieces butted at a right angle — no shaping; glue, dowels or screws carry the load.",
-      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr_projects.woodworking import Beam, butt_joint\n\nwall = Beam(45, 45, 360, color=\"#8a6a45\")\nrail = Beam(45, 45, 220, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(wall)\nbutt_joint(assembly, rail, wall, face=\"px\", at=200)\nshow(assembly)"
+      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr.woodworking import Beam, butt_joint\n\nwall = Beam(45, 45, 360, color=\"#8a6a45\")\nrail = Beam(45, 45, 220, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(wall)\nbutt_joint(assembly, rail, wall, face=\"px\", at=200)\nshow(assembly)"
     },
     {
       "id": "tongue-and-groove",
       "title": "Tongue & Groove",
       "description": "A full-length tongue on one board slides into a matching groove on the other — flooring and panel glue-ups.",
-      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr_projects.woodworking import Beam, tongue_and_groove\n\nboard_a = Beam(100, 21, 320, color=\"#8a6a45\")\nboard_b = Beam(100, 21, 320, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(board_a)\ntongue_and_groove(assembly, board_a, board_b, tongue=10.0, thickness=7.0)\nshow(assembly)"
+      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr.woodworking import Beam, tongue_and_groove\n\nboard_a = Beam(100, 21, 320, color=\"#8a6a45\")\nboard_b = Beam(100, 21, 320, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(board_a)\ntongue_and_groove(assembly, board_a, board_b, tongue=10.0, thickness=7.0)\nshow(assembly)"
     },
     {
       "id": "sliding-dovetail",
       "title": "Sliding Dovetail",
       "description": "A dovetail-profile tongue runs the whole edge: like tongue & groove but mechanically locked against pull-apart.",
-      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr_projects.woodworking import Beam, sliding_dovetail\n\nboard_a = Beam(100, 24, 320, color=\"#8a6a45\")\nboard_b = Beam(100, 24, 320, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(board_a)\nsliding_dovetail(assembly, board_a, board_b, tail=10.0, root=8.0)\nshow(assembly)"
+      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr.woodworking import Beam, sliding_dovetail\n\nboard_a = Beam(100, 24, 320, color=\"#8a6a45\")\nboard_b = Beam(100, 24, 320, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(board_a)\nsliding_dovetail(assembly, board_a, board_b, tail=10.0, root=8.0)\nshow(assembly)"
     },
     {
       "id": "edge",
       "title": "Edge Joint",
       "description": "Two boards glued edge to edge into a wider panel — the placement baseline the fancier edge joints build on.",
-      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr_projects.woodworking import Beam, edge_joint\n\nboard_a = Beam(100, 20, 320, color=\"#8a6a45\")\nboard_b = Beam(100, 20, 320, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(board_a)\nedge_joint(assembly, board_a, board_b)\nshow(assembly)"
+      "python": "from cadbuildr.foundation import Assembly, show\nfrom cadbuildr.woodworking import Beam, edge_joint\n\nboard_a = Beam(100, 20, 320, color=\"#8a6a45\")\nboard_b = Beam(100, 20, 320, color=\"#d2b48c\")\n\nassembly = Assembly()\nassembly.add_component(board_a)\nedge_joint(assembly, board_a, board_b)\nshow(assembly)"
     },
     {
       "id": "finger-box",
       "title": "Finger-Jointed Box",
       "group": "assembly",
       "description": "Four boards, four box corners — the last corner closes the loop and is verified geometrically before the cuts are trusted.",
-      "python": "from cadbuildr.foundation import show\nfrom cadbuildr_projects.woodworking import Beam, FingerSpec, Joinery\n\na = Beam(120, 18, 300, color=\"#c9a36a\")\nb = Beam(120, 18, 200, color=\"#8a6a45\")\nc = Beam(120, 18, 300, color=\"#d2b48c\")\nd = Beam(120, 18, 200, color=\"#a97c50\")\n\nj = Joinery()\nspec = FingerSpec(count=6)\nj.box_corner(a.end(\"b\").inside(\"ny\"), b.end(\"a\").inside(\"ny\"), spec)\nj.box_corner(b.end(\"b\").inside(\"ny\"), c.end(\"a\").inside(\"ny\"), spec)\nj.box_corner(c.end(\"b\").inside(\"ny\"), d.end(\"a\").inside(\"ny\"), spec)\nj.box_corner(d.end(\"b\").inside(\"ny\"), a.end(\"a\").inside(\"ny\"), spec)\nshow(j.build(ground=a))"
+      "python": "from cadbuildr.foundation import show\nfrom cadbuildr.woodworking import Beam, FingerSpec, Joinery\n\na = Beam(120, 18, 300, color=\"#c9a36a\")\nb = Beam(120, 18, 200, color=\"#8a6a45\")\nc = Beam(120, 18, 300, color=\"#d2b48c\")\nd = Beam(120, 18, 200, color=\"#a97c50\")\n\nj = Joinery()\nspec = FingerSpec(count=6)\nj.box_corner(a.end(\"b\").inside(\"ny\"), b.end(\"a\").inside(\"ny\"), spec)\nj.box_corner(b.end(\"b\").inside(\"ny\"), c.end(\"a\").inside(\"ny\"), spec)\nj.box_corner(c.end(\"b\").inside(\"ny\"), d.end(\"a\").inside(\"ny\"), spec)\nj.box_corner(d.end(\"b\").inside(\"ny\"), a.end(\"a\").inside(\"ny\"), spec)\nshow(j.build(ground=a))"
     },
     {
       "id": "table-corner",
       "title": "Table Corner",
       "group": "assembly",
       "description": "Two aprons tenoned into one leg at offset heights. At the same height the builder raises a collision error instead of crossing the tenons inside the leg.",
-      "python": "from cadbuildr.foundation import show\nfrom cadbuildr_projects.woodworking import Beam, Joinery\n\nleg = Beam(45, 45, 700, color=\"#8a6a45\")\nrail_x = Beam(45, 45, 300, color=\"#d2b48c\")\nrail_y = Beam(45, 45, 300, color=\"#e0cba8\")\n\nj = Joinery()\nj.mortise_and_tenon(rail_x.end(\"b\"), leg.face(\"px\").at(650, from_=\"a\"))\nj.mortise_and_tenon(rail_y.end(\"b\"), leg.face(\"py\").at(610, from_=\"a\"))\nshow(j.build(ground=leg))"
+      "python": "from cadbuildr.foundation import show\nfrom cadbuildr.woodworking import Beam, Joinery\n\nleg = Beam(45, 45, 700, color=\"#8a6a45\")\nrail_x = Beam(45, 45, 300, color=\"#d2b48c\")\nrail_y = Beam(45, 45, 300, color=\"#e0cba8\")\n\nj = Joinery()\nj.mortise_and_tenon(rail_x.end(\"b\"), leg.face(\"px\").at(650, from_=\"a\"))\nj.mortise_and_tenon(rail_y.end(\"b\"), leg.face(\"py\").at(610, from_=\"a\"))\nshow(j.build(ground=leg))"
     },
     {
       "id": "miter-frame",
       "title": "Mitered Frame",
       "group": "assembly",
       "description": "Four 45° corners closing a frame; each corner declares which face turns inward, and the closing corner must land within tolerance.",
-      "python": "from cadbuildr.foundation import show\nfrom cadbuildr_projects.woodworking import Beam, Joinery\n\nf1 = Beam(60, 20, 400, color=\"#c9a36a\")\nf2 = Beam(60, 20, 300, color=\"#8a6a45\")\nf3 = Beam(60, 20, 400, color=\"#d2b48c\")\nf4 = Beam(60, 20, 300, color=\"#a97c50\")\n\nj = Joinery()\nfor p, q in ((f1, f2), (f2, f3), (f3, f4), (f4, f1)):\n    j.miter(p.end(\"b\").inside(\"ny\"), q.end(\"a\").inside(\"ny\"))\nshow(j.build(ground=f1))"
+      "python": "from cadbuildr.foundation import show\nfrom cadbuildr.woodworking import Beam, Joinery\n\nf1 = Beam(60, 20, 400, color=\"#c9a36a\")\nf2 = Beam(60, 20, 300, color=\"#8a6a45\")\nf3 = Beam(60, 20, 400, color=\"#d2b48c\")\nf4 = Beam(60, 20, 300, color=\"#a97c50\")\n\nj = Joinery()\nfor p, q in ((f1, f2), (f2, f3), (f3, f4), (f4, f1)):\n    j.miter(p.end(\"b\").inside(\"ny\"), q.end(\"a\").inside(\"ny\"))\nshow(j.build(ground=f1))"
     }
   ]
 }

@@ -40,7 +40,7 @@ def test_demo_example_builds(example, monkeypatch):
 
 def test_manifest_covers_every_exported_joint():
     """Each joinery one-liner exported by the package appears in the demo."""
-    import cadbuildr_projects.woodworking as wood
+    import cadbuildr.woodworking as wood
 
     # Only the legacy one-liners (module .joints) are demo material; the
     # interfaces API (sites/specs/Joinery) is exercised by test_interfaces.py.

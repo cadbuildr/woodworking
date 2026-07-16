@@ -46,7 +46,7 @@ const ASSEMBLIES = EXAMPLES.filter((e) => e.group === "assembly");
 
 const FOUNDATION_IMPORT_PATH = "cadbuildr.foundation";
 const FOUNDATION_DAG_UTILS_PATH = `${FOUNDATION_IMPORT_PATH}.dag_utils`;
-const WOODWORKING_IMPORT_PATH = "cadbuildr_projects.woodworking";
+const WOODWORKING_IMPORT_PATH = "cadbuildr.woodworking";
 
 function localWheelUrl(fileName: string): string {
   return new URL(

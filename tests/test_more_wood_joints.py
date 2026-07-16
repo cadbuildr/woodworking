@@ -11,7 +11,7 @@ from cadbuildr.foundation.math_utils import (
     tf_relative_to_frame,
 )
 
-from cadbuildr_projects.woodworking import (
+from cadbuildr.woodworking import (
     Beam,
     box_joint,
     butt_joint,

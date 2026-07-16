@@ -1,6 +1,6 @@
 # JOINERY — wood joints demo (Vite + R3F + Pyodide)
 
-Static browser demo of the `cadbuildr_projects.woodworking` library: pick a
+Static browser demo of the `cadbuildr.woodworking` library: pick a
 joint or a whole assembly, the Python runs in Pyodide, and the CADbuildr
 kernel renders the cut + placed boards. Live at
 https://cadbuildr.github.io/woodworking/
@@ -14,7 +14,7 @@ pnpm run dev
 ```
 
 At runtime the page installs `cadbuildr-foundation` **from PyPI** (pinned in
-`src/main.tsx`) and loads this repo's own `cadbuildr-projects-woodworking`
+`src/main.tsx`) and loads this repo's own `cadbuildr-woodworking`
 wheel from `public/local-wheels/` (`pnpm run sync-wheels` builds and copies
 it). Never bundle a locally-built foundation wheel — release foundation to
 PyPI first, then bump the pin. `VITE_FOUNDATION_WHEEL_URL` exists only as a

@@ -1,4 +1,4 @@
-# cadbuildr_projects.woodworking
+# cadbuildr.woodworking
 
 ## Summary
 
@@ -47,7 +47,7 @@ yellow
 ## Usage
 
 ```python
-from cadbuildr_projects.woodworking import Beam, FingerSpec, Joinery, TenonSpec
+from cadbuildr.woodworking import Beam, FingerSpec, Joinery, TenonSpec
 
 # A four-corner finger-jointed box — the last corner closes the loop and is
 # verified geometrically (ClosureError if the board lengths don't add up).

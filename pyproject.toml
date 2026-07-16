@@ -1,16 +1,17 @@
 [project]
-name = "cadbuildr-projects-woodworking"
+name = "cadbuildr-woodworking"
 version = "0.1.0"
 description = "Wood joinery one-liners (mortise & tenon, laps...) built on CADbuildr foundation anchors + joints"
 readme = "README.md"
-# The workspace lock resolves with a 3.12 floor (uv.lock requires-python);
-# declaring it here keeps `uv lock` reproducible.
-requires-python = ">=3.12,<4.0.0"
+# Published wheel must install everywhere the platform runs Python:
+# the cloud sandbox venv is Debian bookworm 3.11, Pyodide is 3.12+ —
+# match foundation's floor.
+requires-python = ">=3.10.0,<4.0.0"
 authors = [
     {name = "CADbuildr Team"},
 ]
 dependencies = [
-    "cadbuildr-foundation>=0.2.13,<0.3.0",
+    "cadbuildr-foundation>=0.2.12,<0.3.0",
 ]
 
 [dependency-groups]
@@ -19,13 +20,15 @@ dev = [
 ]
 
 [tool.cadbuildr.dependencies]
-cadbuildr-foundation = "^0.2.13"
+cadbuildr-foundation = "^0.2.12"
 
 [tool.hatch.build.targets.wheel]
 packages = [
-    "cadbuildr_projects",
+    "cadbuildr",
 ]
 
+[tool.uv.sources]
+cadbuildr-foundation = {workspace = true}
 
 [build-system]
 requires = [

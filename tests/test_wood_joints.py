@@ -11,7 +11,7 @@ from cadbuildr.foundation.math_utils import (
     tf_relative_to_frame,
 )
 
-from cadbuildr_projects.woodworking import Beam, cross_lap, mortise_and_tenon
+from cadbuildr.woodworking import Beam, cross_lap, mortise_and_tenon
 
 
 def _beam_axis(assembly, beam):
